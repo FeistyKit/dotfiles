@@ -17,8 +17,14 @@ local M = {}
 M.source = debug.getinfo(1, "S").source:sub(2)
 
 M.plugins = {
-	"chriskempson/base16-vim"
+	"chriskempson/base16-vim",
+	"alaviss/nim.nvim"
 }
+
+-- Set up language server for nim
+require 'lspconfig'.nimls.setup{}
+-- Set up language server for haskell
+require'lspconfig'.hls.setup{}
 
 return M
 
