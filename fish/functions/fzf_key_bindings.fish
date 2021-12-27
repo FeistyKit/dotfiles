@@ -1,0 +1,1 @@
+/home/feisty/.fzf/shell/key-bindings.fish
