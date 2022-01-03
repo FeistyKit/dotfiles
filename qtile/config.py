@@ -213,21 +213,21 @@ widget_defaults = dict(
     fontsize=12,
     padding=3,
     background=Colours.DARKEST,
+    foreground=Colours.DARKEST_TAN
 )
 extension_defaults = widget_defaults.copy()
 
-default_sep = widget.Sep(
-    linewidth=0,
-    padding=6,
-    foreground=Colours.MED_BROWN,
-    background=Colours.DARKEST
-)
+def default_sep():
+    return widget.TextBox(
+        text=" | ",
+        linewidth=0,
+        padding=6,
+        foreground=Colours.MED_DARK_BROWN,
+        background=Colours.DARKEST
+    )
 
 def mk_widgets():
     to_ret = [
-                default_sep,
-                widget.CurrentLayout(),
-                default_sep,
                 widget.GroupBox(
                     margin_y = 3,
                     margin_x = 0,
@@ -242,16 +242,45 @@ def mk_widgets():
                     foreground=Colours.MED_BROWN,
                     background=Colours.DARKEST
                 ),
-                widget.WindowName(),
-                widget.Volume(fmt="Volume: {}"),
-                widget.CPU(format="CPU: {freq_current}GHz {load_percent}%"),
+                default_sep(),
+                widget.WindowName(
+                    padding=0,
+                    foreground=Colours.DARKEST_TAN,
+                    background=Colours.DARKEST,
+                ),
+                widget.Sep(
+                    linewidth=0,
+                    padding=70,
+                    foreground=Colours.MED_BROWN,
+                    background=Colours.DARKEST
+                ),
+                widget.CPU(format="CPU {load_percent}%",
+                ),
+                default_sep(),
+                widget.Memory(format="MEM {MemPercent: .0f}%",
+                ),
+                default_sep(),
+                widget.Volume(fmt="VOL {}",
+                ),
+                default_sep(),
                 widget.Net(
-                    interface= 'wlp2s0'
+                    interface= 'wlp2s0',
+                    format='REC {down} TRA {up}', # https://gitlab.com/dwt1/dotfiles/-/blob/master/.config/qtile/config.py#L374
                     ),
-                widget.CheckUpdates(),
+                default_sep(),
+                widget.CheckUpdates(
+                    update_interval = 1800,
+                    distro = "Arch_checkupdates",
+                    display_format = "PAC {updates}",
+                    no_update_string = "UP TO DATE",
+                    colour_no_updates = Colours.DARKEST_TAN,
+                    colour_have_updates = Colours.DARKEST_TAN
+                ),
+                default_sep(),
                 # widget.MOC(),
-                widget.Clock(format='%Y-%m-%d %a %I:%M %p'),
-                widget.QuickExit(countdown_format="[{}]", default_text="[X]"),
+                widget.Clock(
+                    format='NOW %Y-%m-%d %a %I:%M %p',
+                ),
             ]
     return to_ret
 

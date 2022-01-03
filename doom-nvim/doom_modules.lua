@@ -45,7 +45,7 @@ M.modules = {
     "linter",          -- Asynchronous linter, see errors in your code on the fly
     "lsp",                -- Language Server Protocols
     -- "minimap",         -- Code minimap, requires github.com/wfxr/code-minimap
-    -- "ranger",          -- Ranger File Browser, requires ranger file browser
+    "ranger",          -- Ranger File Browser, requires ranger file browser
     "snippets",           -- Code snippets
     "symbols",         -- LSP symbols and tags
     "telescope",          -- Highly extendable fuzzy finder over lists
@@ -81,15 +81,15 @@ M.modules = {
     -- "dockerfile",      -- Do you like containers, right?
   },
   utilities = {
-    -- "lazygit",         -- LazyGit integration for Neovim, requires LazyGit
+    "lazygit",         -- LazyGit integration for Neovim, requires LazyGit
     -- "neogit",          -- Magit for Neovim
     "range-highlight",    -- Hightlights ranges you have entered in commandline
     "suda",            -- Write and read files without sudo permissions
     "superman",        -- Read Unix man pages faster than a speeding bullet!
-    -- "todo_comments",   -- Highlight, list and search todo comments in your projects
+    "todo_comments",   -- Highlight, list and search todo comments in your projects
   },
   web = {
-    -- "colorizer",       -- Fastest colorizer for Neovim
+    "colorizer",       -- Fastest colorizer for Neovim
     -- "firenvim",        -- Requires firenvim browser extension; change fontsize by increasing guifontsize in doom_config
     -- "restclient",      -- A fast Neovim http client
   },
