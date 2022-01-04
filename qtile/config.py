@@ -290,7 +290,7 @@ def mk_widgets():
         import psutil # type: ignore
         if psutil.sensors_battery() is not None:
             battery_index = 7 # we want it to be right before the volume widget
-            to_ret.insert(battery_index, widget.Battery(foreground=Colours.DARKEST_TAN, background=Colours.DARKEST))
+            to_ret.insert(battery_index, widget.Battery(foreground=Colours.DARKEST_TAN, background=Colours.DARKEST, format="BAT {char} {percent:2.0%}"))
             to_ret.insert(battery_index, default_sep())
     except ImportError:
         os.system("notify-send \"Could not use psutil library to detect battery!\"")
