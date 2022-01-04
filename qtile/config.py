@@ -86,6 +86,8 @@ keys = [
 
     Key("M-S-<space>", lazy.window.toggle_floating(), desc="Toggle floating for a window"),
 
+    Key("M-q", lazy.prev_screen(), desc="Move focus to previous screen"),
+    Key("M-w", lazy.next_screen(), desc="Move focus to next screen"),
 
     Key("M-S-v", lazy.spawn(editor + f"{userpath}/.config/qtile/config.py"), desc="Quickly change config"),
 
@@ -282,6 +284,18 @@ def mk_widgets():
                     format='NOW %Y-%m-%d %a %I:%M %p',
                 ),
             ]
+# whether or not to include the battery widget
+# https://stackoverflow.com/a/41988627
+    try:
+        import psutil # type: ignore
+        if psutil.sensors_battery() is not None:
+            try:
+                battery_index = find_volume() # we want it to be right before the volume widget
+                to_ret.insert(battery_index, widget.Battery())
+            except ValueError:
+                to_ret.append(widget.Battery())
+    except ImportError:
+        os.system("notify-send \"Could not use psutil library to detect battery!\"")
     return to_ret
 
 
@@ -310,28 +324,7 @@ screens = [
     ),
 ]
 
-# whether or not to include the battery widget
-# https://stackoverflow.com/a/41988627
-try:
-    import psutil # type: ignore
-    if psutil.sensors_battery() is not None:
-        try:
-            battery_index = find_volume() # we want it to be right before the volume widget
-            widgets.insert(battery_index, widget.Battery())
-        except ValueError:
-            widgets.append(widget.Battery())
 
-    import subprocess
-    res = subprocess.run(["xrandr"], encoding='utf8', capture_output=True)
-    # find number of displays
-    n = len([f for f in res.stdout.splitlines() if "*+" in f])
-
-    # what to do if there are two displays
-    if n > 1:
-        keys.append(Key("M-q", lazy.prev_screen(), desc="Move focus to previous screen"))
-        keys.append(Key("M-w", lazy.next_screen(), desc="Move focus to next screen"))
-except ImportError:
-    os.system("notify-send \"Could not use psutil library to detect battery!\"")
 
 
 # Drag floating layouts.
