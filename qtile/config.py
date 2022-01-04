@@ -289,7 +289,7 @@ def mk_widgets():
     try:
         import psutil # type: ignore
         bat = psutil.sensors_battery()
-        if bat is not None and bat.secsleft != 1:
+        if bat is not None and bat.secsleft != -1:
             battery_index = 7 # we want it to be right before the volume widget
             to_ret.insert(battery_index, widget.Battery(foreground=Colours.DARKEST_TAN, background=Colours.DARKEST, format="BAT {char} {percent:2.0%}"))
             to_ret.insert(battery_index, default_sep())
