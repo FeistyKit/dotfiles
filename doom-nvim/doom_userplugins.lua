@@ -18,7 +18,8 @@ M.source = debug.getinfo(1, "S").source:sub(2)
 
 M.plugins = {
 	"chriskempson/base16-vim",
-	"alaviss/nim.nvim"
+	"alaviss/nim.nvim",
+	"mg979/vim-visual-multi"
 }
 
 -- Set up language server for nim

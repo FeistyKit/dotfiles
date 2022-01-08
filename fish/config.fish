@@ -2,8 +2,6 @@ if status is-interactive
     # https://github.com/Jomik/fish-gruvbox
 
     theme_gruvbox dark hard
-
-    fish_vi_key_bindings
 end
 # =============================================================================
 #
