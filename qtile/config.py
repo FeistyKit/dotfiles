@@ -68,7 +68,7 @@ keys = [
         ]),
 
     # https://github.com/tsoding/boomer
-    Key("M-d", lazy.spawn(userpath + "/bin/boomer")),
+    Key("M-b", lazy.spawn(userpath + "/bin/boomer")),
 
     # Mocp things!
     KeyChord([mod], "p", [
