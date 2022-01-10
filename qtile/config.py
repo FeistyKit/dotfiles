@@ -70,6 +70,9 @@ keys = [
     # https://github.com/tsoding/boomer
     Key("M-b", lazy.spawn(userpath + "/bin/boomer")),
 
+    # https://github.com/bk138/gromit-mpx
+    Key("M-a", lazy.spawn("gromit-mpx")),
+
     # Mocp things!
     KeyChord([mod], "p", [
         Key("<space>", lazy.spawn("mocp --toggle-pause"), desc="Toggle pause/play in mocp"),
