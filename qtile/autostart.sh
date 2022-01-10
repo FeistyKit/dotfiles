@@ -1,4 +1,4 @@
-#!/usr/bin/sh
+#!/usr/bin/env sh
 rm "$HOME"/.moc/pid
 dunst &
 mocp -S
@@ -8,3 +8,4 @@ nitrogen --restore &
 emacs --daemon
 pyro4-ns &
 diodon &
+flatpak run net.christianbeier.Gromit-MPX &

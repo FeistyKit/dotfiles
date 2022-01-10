@@ -71,7 +71,7 @@ keys = [
     Key("M-b", lazy.spawn(userpath + "/bin/boomer")),
 
     # https://github.com/bk138/gromit-mpx
-    Key("M-a", lazy.spawn("gromit-mpx")),
+    Key("M-a", lazy.spawn("gromit-mpx --toggle")),
 
     # Mocp things!
     KeyChord([mod], "p", [
