@@ -68,7 +68,7 @@ M.modules = {
     "python +lsp",     -- Python support + lsp
     -- "ruby",            -- Look ma, I love the gems!
 
-    -- "c",               -- Core dumped: segmentation fault
+    "c +lsp",               -- Core dumped: segmentation fault
     -- "cpp",             -- C++ support
     -- "go",              -- Hello, gopher
     -- "haskell",         -- Because Functional programming is fun, isn't it?
