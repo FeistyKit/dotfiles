@@ -53,7 +53,7 @@
   ;; http://ergoemacs.org/emacs/modernization_elisp_lib_problem.html
 
 (setq doom-theme 'base16-gruvbox-dark-hard)
-(setq custom-font-size (string-to-number (trim-string ( nth 0 (read-lines "~/.config/doom/local-config")))))
+(setq custom-font-size (cond ((file-exists-p "~/.config/doom/local-config") (string-to-number (trim-string ( nth 0 (read-lines "~/.config/doom/local-config"))))) (t 20)))
   ;; reading the size from a file so I can have different local configs for different computers
 
 (setq doom-font (font-spec :family "mononoki Nerd Font" :size custom-font-size))
@@ -90,10 +90,6 @@
 ;;   `require' or `use-package'.
 ;; - `map!' for binding new keys
 ;;
-(map! :after 'move-text "M-j" 'move-text-down)
-(map! :after 'move-text "M-k" 'move-text-up)
-
-(map! :desc "Open fixmee buffer" :after 'fixmee :leader "p l" 'fixmee-view-listing)
 ;; To get information about any of these functions/macros, move the cursor over
 ;; the highlighted symbol at press 'K' (non-evil users must press 'C-c c k').
 ;; This will open documentation for it, including demos of how they are used.
