@@ -1,8 +1,8 @@
 if status is-interactive
     # https://github.com/Jomik/fish-gruvbox
     theme_gruvbox dark hard
-    cbonsai -lpt 0.001 &
-    printf "\n"
+    sleep 0.1
+    cbonsai -lpt 0.001
 end
 # =============================================================================
 #
