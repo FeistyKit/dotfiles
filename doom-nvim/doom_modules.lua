@@ -37,7 +37,7 @@ M.modules = {
     "autopairs",          -- Autopairs
     "auto-session",       -- A small automated session manager for Neovim
     "dap",                -- Debug Adapter Protocol
-    -- "editorconfig",    -- EditorConfig support for Neovim
+    "editorconfig",    -- EditorConfig support for Neovim
     "explorer",           -- Tree explorer
     "formatter",          -- File formatting
     "gitsigns",           -- Git signs

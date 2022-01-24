@@ -92,7 +92,7 @@ M.config = {
     -- true  : enables scroll off
     -- @default = true, @default scrolloff_amount = 4,
     scrolloff = true,
-    scrolloff_amount = 4,
+    scrolloff_amount = 8,
 
     -- Enable mouse
     -- false : disables mouse
@@ -116,7 +116,7 @@ M.config = {
     -- false : doesn't split the window when creating a new file
     -- true  : horizontal split on creating a new file
     -- @default = true
-    new_file_split = false,
+    new_file_split = true,
 
     -- enable current line highlight
     -- false : disables current line highlight
@@ -146,7 +146,7 @@ M.config = {
     -- false : disables auto comment
     -- true  : enables auto comment
     -- @default = false
-    auto_comment = false,
+    auto_comment = true,
 
     -- Show indent lines
     -- @default = true
@@ -175,7 +175,7 @@ M.config = {
     -- false : Manually set win width
     -- true  : Active window auto sets width
     -- @default = false, @default win_width_nr = 85
-    win_width = false,
+    win_width = true,
     win_width_nr = 85,
 
     -- Enable Highlight on yank
@@ -200,7 +200,7 @@ M.config = {
 
     -- Checkupdates on start
     -- @default = false
-    check_updates = true,
+    check_updates = false,
 
     -- Auto install plugins on launch, useful if you don't want to run
     -- PackerInstall every time you add a new plugin
@@ -235,7 +235,7 @@ M.config = {
 
     -- sequences used for escaping insert mode
     -- @default = { 'jk', 'kj' }
-    escape_sequences = {},
+    escape_sequences = { "jk", "kj" },
 
     -- Disable or enable Doom autocommands, this can break some configuration options (they will stop working)
     -- e.g. preserve_edit_pos or autosave
@@ -260,7 +260,7 @@ M.config = {
     -- Set max cols
     -- Defines the column to show a vertical marker
     -- @default = 80
-    max_columns = nil,
+    max_columns = 0,
 
     -- Completion box height
     -- @default = 10
@@ -354,6 +354,30 @@ M.config = {
       transparent_background = false,
     },
 
+
+    -- base16-gruvbox-dark-hard colorscheme settings
+    base16_gruvbox_dark_hard = {
+      -- If the cursor color should be blue
+      -- @default = false
+      cursor_coloring = false,
+      -- If TreeSitter highlighting should be enabled
+      -- @default = true
+      enable_treesitter = true,
+      -- If the comments should be italic
+      -- @default = false
+      italic_comments = false,
+      -- If the telescope plugin window should be colored
+      -- @default = true
+      telescope_highlights = true,
+      -- If the built-in Neovim terminal should use the doom-one
+      -- colorscheme palette
+      -- @default = false
+      terminal_colors = true,
+      -- If the Neovim instance should be transparent
+      -- @default = false
+      transparent_background = true,
+    },
+
     -- Set gui fonts here
     -- @default = "FiraCode Nerd Font", @default font size = 15,
     -- WARNING: Font sizes must be in string format!
@@ -400,7 +424,34 @@ M.config = {
 
     -- Set your custom dashboard header below
     -- @default = doom emacs' default dashboard header
-    dashboard_custom_header = {},
+    dashboard_custom_header = {
+[[  #++%               %########%%
+%+-:.+%           #*+++*****#######%
+*+=..=+%        %+==+*****####%%%####%
+%*+-:.:-#     %=:::::-=*#####%%%%######%
+     #=.:=*##+---=====-:=*%%########****
+       %=.:--::----====-:-*######*+===--+           ##
+         +--::::::--==-:::=+***+----====-*       #++==#
+         +---:::==..=*=:..:=++=======+++++#% %#+-:====*
+        #-==++-----:+*+:.-=+*+==----=====+**+==++**###%
+       #=++**##*+==+++==+**##*+-:-..:%*-=+***%
+      #==++***#*+=-====+**#####*=---+*+++*##%
+     %=---==+++-:.:--:-++****###***+++**###%
+     *-----:::::::....:-=++********##%%%%#%%
+    %===++--:--======-:::::-==-:-+=+##%%%%%%
+    #=====----:-==++*****++++******=+*###%%%
+    %---------=---=+*##*****########+==**##%
+     +----------=====+****###########*++*##%
+     %=----------===++++====+++++++++*#*###%
+      #-----------==+++++**##*##*##########%
+       #----------===++++++*******#########
+        *--------====++++++********#######%
+         *----==++++++++++********#######%
+          %+---=++********#############%
+            #+--==++******###########%
+               #**+++++++*******##%
+                    %##****###%]]
+    },
   },
 
   nvim = {
@@ -440,7 +491,9 @@ M.config = {
     --     ':Lspsaga ...' is the command to be executed
     --     options is a Lua table containing the mapping options, e.g.
     --     { silent = true }, see ':h map-arguments'.
-    mappings = {},
+    mappings = {
+    	{'v', '<leader>a', ':Align '}
+    },
 
     -- Set custom commands
     -- @default = {}
@@ -448,7 +501,9 @@ M.config = {
     --   {
     --      'echo "Hello, custom commands!"'
     --   }
-    commands = {},
+    commands = {
+				"command! -range=% -nargs=1 Align lua require'align'.align(<f-args>)"
+    },
 
     -- Set custom functions
     -- @default = {}
