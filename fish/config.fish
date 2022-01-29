@@ -1,6 +1,7 @@
 if status is-interactive
     # https://github.com/Jomik/fish-gruvbox
     theme_gruvbox dark hard
+    setenv EDITOR nvim
     sleep 0.1
     cbonsai -lpt 0.001
 end
