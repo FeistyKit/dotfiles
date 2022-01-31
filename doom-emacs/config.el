@@ -56,7 +56,7 @@
 (setq custom-font-size (cond ((file-exists-p "~/.config/doom/local-config") (string-to-number (trim-string ( nth 0 (read-lines "~/.config/doom/local-config"))))) (t 20)))
   ;; reading the size from a file so I can have different local configs for different computers
 
-(setq doom-font (font-spec :family "mononoki Nerd Font" :size custom-font-size))
+(setq doom-font (font-spec :family "Iosevka Term Bold" :size custom-font-size))
 
 (setq racer-rust-src-path
       (concat (string-trim
