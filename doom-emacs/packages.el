@@ -32,10 +32,13 @@
 
 (package! ido-completing-read+)
 
+<<<<<<< HEAD
 (package! elcord)
 
 (package! slime)
 
+=======
+>>>>>>> a34818e (carbon-now-sh.el)
 (package! carbon-now-sh)
 
 ;; If the package you are trying to install does not contain a PACKAGENAME.el
