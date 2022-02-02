@@ -63,6 +63,12 @@
                (shell-command-to-string "rustc --print sysroot"))
               "/lib/rustlib/src/rust/library"))
 
+
+(set-lookup-handlers! 'lsp-mode :documentation nil)
+(set-lookup-handlers! 'lsp-mode :documentation 'lsp-ui-doc-show)
+
+(elcord-mode)
+
 (require 'lsp-pyright)
 
 (ido-mode 1)
