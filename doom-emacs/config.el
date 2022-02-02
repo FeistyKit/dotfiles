@@ -63,6 +63,7 @@
                (shell-command-to-string "rustc --print sysroot"))
               "/lib/rustlib/src/rust/library"))
 
+(setq inferior-lisp-program "sbcl")
 
 (set-lookup-handlers! 'lsp-mode :documentation nil)
 (set-lookup-handlers! 'lsp-mode :documentation 'lsp-ui-doc-show)
