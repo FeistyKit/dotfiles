@@ -51,6 +51,8 @@
         (replace-regexp-in-string "\\`[ \t\n]*" "" (replace-regexp-in-string "[ \t\n]*\\'" "" string))
         )
   ;; http://ergoemacs.org/emacs/modernization_elisp_lib_problem.html
+  ;;
+(remove-hook! rust-mode-hook #'racer-mode)
 
 (setq doom-theme 'base16-gruvbox-dark-hard)
 (setq custom-font-size (cond ((file-exists-p "~/.config/doom/local-config") (string-to-number (trim-string ( nth 0 (read-lines "~/.config/doom/local-config"))))) (t 20)))
