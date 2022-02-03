@@ -24,7 +24,7 @@
        company                            ; the ultimate code completion backend
        ;;helm                             ; the *other* search engine for love and life
        ;;ido                              ; the other *other* search engine...
-       ;;(ivy +fonts +prescient +fuzzy)  ; a search engine for love and life
+       (ivy +fonts +prescient +fuzzy)  ; a search engine for love and life
        ;;vertico                          ; the search engine of the future
 
        :ui
@@ -77,7 +77,7 @@
        ;;eshell                        ; the elisp shell that works everywhere
        ;;shell                         ; simple shell REPL for Emacs
        ;;term                          ; basic terminal emulator for Emacs
-       ;;vterm                         ; the best terminal emulation in Emacs
+       vterm                         ; the best terminal emulation in Emacs
 
        :checkers
        syntax                          ; tasing you for every semicolon you forget
@@ -94,7 +94,7 @@
        (eval +overlay)                 ; run code, run (also, repls)
        ;;gist                          ; interacting with github gists
        lookup                          ; navigate your code and its documentation
-       ;; lsp                          ; M-x vscode
+       lsp                          ; M-x vscode
        magit                           ; a git porcelain for Emacs
        ;;make                          ; run make tasks from Emacs
        ;;pass                          ; password manager for nerds
@@ -146,7 +146,7 @@
        ;;ledger                        ; be audit you can be
        ;;lua                           ; one-based indices? one-based indices
        markdown                        ; writing docs for people to ignore
-       nim                             ; python + lisp at the speed of c
+       nim +lsp                             ; python + lisp at the speed of c
        ;;nix                           ; I hereby declare "nix geht mehr!"
        ;;ocaml                         ; an objective camel
        (org +org-bullets)              ; organize your plain life in plain text
