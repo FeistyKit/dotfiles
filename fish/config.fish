@@ -97,3 +97,4 @@ alias zi="__zoxide_zi"
 # zoxide init fish | source
 
 thefuck --alias | source
+set -q GHCUP_INSTALL_BASE_PREFIX[1]; or set GHCUP_INSTALL_BASE_PREFIX $HOME ; set -gx PATH $HOME/.cabal/bin /home/feisty/.ghcup/bin $PATH # ghcup-env
