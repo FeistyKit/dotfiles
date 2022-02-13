@@ -28,7 +28,7 @@ HOME = (
 
 
 def backup(path: str):
-    path = os.path.abspath(path)
+    path = os.path.normpath(path)
     if os.path.exists(path):
         if os.path.exists(path + ".backup"):
             counter = 1
