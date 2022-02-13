@@ -29,7 +29,9 @@ HOME = (
 
 def backup(path: str):
     path = os.path.abspath(path)
+    print("Trying to back up " + path)
     if os.path.exists(path):
+        print("Path exists!")
         if os.path.exists(path + ".backup"):
             counter = 1
             while os.path.exists(path + ".backup-" + str(counter)):
@@ -40,27 +42,27 @@ def backup(path: str):
 
 
 def install_alacritty():
-    backup(HOME + "/.config/alacritty")
+    backup(HOME + "/.config/alacritty/")
     os.symlink("./alacritty", HOME + "/.config/alacritty")
 
 
 def install_qtile():
-    backup(HOME + "/.config/qtile")
+    backup(HOME + "/.config/qtile/")
     os.symlink("./qtile", HOME + "/.config/qtile")
 
 
 def install_fish():
-    backup(HOME + "/.config/fish")
+    backup(HOME + "/.config/fish/")
     os.symlink("./fish", HOME + "/.config/fish")
 
 
 def install_dunst():
-    backup(HOME + "/.config/dunst")
+    backup(HOME + "/.config/dunst/")
     os.symlink("./dunst", HOME + "/.config/dunst")
 
 
 def install_kitty():
-    backup(HOME + "/.config/kitty")
+    backup(HOME + "/.config/kitty/")
     os.symlink("./kitty", HOME + "/.config/kitty")
 
 
@@ -74,23 +76,23 @@ def install_doom_emacs():
         ),
     ]
     res = inquirer.prompt(qs)["doom_path"]
-    backup(HOME + "/.emacs.d")
+    backup(HOME + "/.emacs.d/")
     os.system(
         f"""git clone --depth 1 https://github.com/hlissner/doom-emacs ~/.emacs.d
 {HOME}/.emacs.d/bin/doom install"""
     )
-    backup(res)
+    backup(res + "/")
     os.symlink("./doom-emacs", os.path.abspath(res))
     os.system(f"{HOME}/.emacs.d/bin/doom sync")
 
 
 def install_dmscripts():
-    backup(HOME + "/.config/dmscripts")
+    backup(HOME + "/.config/dmscripts/")
     os.symlink("./dmscripts", HOME + "/.config/dmscripts")
 
 
 def install_fonts():
-    backup(HOME + "/.fonts")
+    backup(HOME + "/.fonts/")
     os.symlink("./fonts", HOME + "/.fonts")
     os.system("sudo fc-cache -fv")
 
