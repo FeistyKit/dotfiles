@@ -61,7 +61,7 @@ def install_dunst():
 
 def install_kitty():
     backup(HOME + "/.config/kitty")
-    os.symlink("./kitty", HOME + "/.config/dunst")
+    os.symlink("./kitty", HOME + "/.config/kitty")
 
 
 def install_doom_emacs():
