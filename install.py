@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 
 import sys, argparse, os
-from typing import Callable, TypeVar
+from typing import Callable, TypeVar, Optional
 
 try:
     import inquirer
@@ -20,7 +20,91 @@ try:
 except ImportError:
     print("Module termcolor not found. Continuing without colour.")
 
-actions: dict[str, Callable] = {}
+HOME = (
+    os.environ.get("XDG_CONFIG_HOME")
+    if os.environ.get("XDG_CONFIG_HOME") is not None
+    else "/home/" + os.environ["USER"]
+)
+
+
+def backup(path: str):
+    path = os.path.abspath(path)
+    if os.path.exists(path):
+        if os.path.exists(path + ".backup"):
+            counter = 1
+            while os.path.exists(path + ".backup-" + str(counter)):
+                counter += 1
+            os.rename(path, path + ".backup-" + str(counter))
+        else:
+            os.rename(path, path + ".backup")
+
+
+def install_alacritty():
+    backup(HOME + "/.config/alacritty")
+    os.symlink("./alacritty", HOME + "/.config/alacritty")
+
+
+def install_qtile():
+    backup(HOME + "/.config/qtile")
+    os.symlink("./qtile", HOME + "/.config/qtile")
+
+
+def install_fish():
+    backup(HOME + "/.config/fish")
+    os.symlink("./fish", HOME + "/.config/fish")
+
+
+def install_dunst():
+    backup(HOME + "/.config/dunst")
+    os.symlink("./dunst", HOME + "/.config/dunst")
+
+
+def install_kitty():
+    backup(HOME + "/.config/kitty")
+    os.symlink("./kitty", HOME + "/.config/dunst")
+
+
+def install_doom_emacs():
+    qs = [
+        inquirer.List(
+            "doom_path",
+            message="Where to install Doom Emacs?",
+            choices=["~/.doom.d", "~/.config/doom"],
+            default="~/.config/doom",
+        ),
+    ]
+    res = inquirer.prompt(qs)["doom_path"]
+    backup(HOME + "/.emacs.d")
+    os.system(
+        f"""git clone --depth 1 https://github.com/hlissner/doom-emacs ~/.emacs.d
+{HOME}/.emacs.d/bin/doom install"""
+    )
+    backup(res)
+    os.symlink("./doom-emacs", os.path.abspath(res))
+    os.system(f"{HOME}/.emacs.d/bin/doom sync")
+
+
+def install_dmscripts():
+    backup(HOME + "/.config/dmscripts")
+    os.symlink("./dmscripts", HOME + "/.config/dmscripts")
+
+
+def install_fonts():
+    backup(HOME + "/.fonts")
+    os.symlink("./fonts", HOME + "/.fonts")
+    os.system("sudo fc-cache -fv")
+
+
+actions: dict[str, Callable] = {
+    "alacritty": install_alacritty,
+    "qtile": install_qtile,
+    "fish": install_fish,
+    "dunst": install_dunst,
+    "kitty": install_kitty,
+    "doom-emacs": install_doom_emacs,
+    "dmscripts": install_dmscripts,
+    "fonts": install_fonts,
+}
 
 T = TypeVar("T")
 
@@ -37,10 +121,12 @@ def validate():
         )
     )
     bad = False
-    prepared_folders: set[str] = set([x[0] for x in actions])
+    prepared_folders: set[str] = set([x for x in actions])
     not_prepared, not_exist = anti_intersect(in_cur_dir, prepared_folders)
     if len(not_prepared) == 1:
-        msg = f'There is no automated installation for folder "{not_prepared[0]}"!'
+        msg = (
+            f'There is no automated installation for folder "{list(not_prepared)[0]}"!'
+        )
         if colored:
             msg = termcolor.colored(
                 msg,
@@ -95,7 +181,19 @@ def validate():
 
 
 def install():
-    pass
+    options = [x for x in actions]
+    questions = [
+        inquirer.Checkbox(
+            "to_install",
+            choices=options.copy(),
+            default=options.copy(),
+            message="What modules would you like to install? (This will back up the previous configurations if they exist)",
+        ),
+    ]
+    conf = inquirer.prompt(questions)
+    for folder in conf["to_install"]:
+        if os.path.isdir(folder):
+            actions[folder]()
 
 
 parser = argparse.ArgumentParser()
