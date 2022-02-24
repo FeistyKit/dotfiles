@@ -6,7 +6,7 @@
  '(ansi-color-names-vector
    ["#282c34" "#ff6c6b" "#98be65" "#ECBE7B" "#51afef" "#c678dd" "#46D9FF" "#bbc2cf"])
  '(custom-safe-themes
-   '("6daa09c8c2c68de3ff1b83694115231faa7e650fdbb668bc76275f0f2ce2a437" "c94a9e8696dc6e208b31663af008113bea070d4642d5bf4189c72ad32c2f6267" "6b5c518d1c250a8ce17463b7e435e9e20faa84f3f7defba8b579d4f5925f60c1" "7eea50883f10e5c6ad6f81e153c640b3a288cd8dc1d26e4696f7d40f754cc703" "073c2c1fa7657e85dd80ef2e984318fe9da781f1e30f72e02d24b360ed7bb4d7" default))
+   '("de1bf2ed5e8ff97ce2d8f277f1d022a8a9141d5c7afe5248c5df077f30168a1b" "bc4c89a7b91cfbd3e28b2a8e9e6750079a985237b960384f158515d32c7f0490" "333958c446e920f5c350c4b4016908c130c3b46d590af91e1e7e2a0611f1e8c5" "6daa09c8c2c68de3ff1b83694115231faa7e650fdbb668bc76275f0f2ce2a437" "c94a9e8696dc6e208b31663af008113bea070d4642d5bf4189c72ad32c2f6267" "6b5c518d1c250a8ce17463b7e435e9e20faa84f3f7defba8b579d4f5925f60c1" "7eea50883f10e5c6ad6f81e153c640b3a288cd8dc1d26e4696f7d40f754cc703" "073c2c1fa7657e85dd80ef2e984318fe9da781f1e30f72e02d24b360ed7bb4d7" default))
  '(exwm-floating-border-color "#191b20")
  '(fci-rule-color "#5B6268")
  '(highlight-tail-colors
@@ -49,3 +49,18 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  )
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ 
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ 
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ 

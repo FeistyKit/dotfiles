@@ -133,7 +133,11 @@
        ;;fstar                         ; (dependent) types and (monadic) effects and Z3
        ;;gdscript                      ; the language you waited for
        ;;(go +lsp)                     ; the hipster dialect
+<<<<<<< HEAD
        (haskell +lsp)                         ; a language that's lazier than I am
+=======
+       (haskell +lsp)                          ; a language that's lazier than I am
+>>>>>>> 7011113 (Emacs)
        ;;hy                            ; readability of scheme w/ speed of python
        ;;idris                         ; a language you can depend on
        ;;json                          ; At least it ain't XML
