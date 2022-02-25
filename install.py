@@ -26,6 +26,8 @@ HOME = (
     else "/home/" + os.environ["USER"]
 )
 
+HERE = os.getcwd() + "/"
+
 
 def backup(path: str):
     path = os.path.normpath(path)
@@ -40,58 +42,58 @@ def backup(path: str):
 
 
 def install_alacritty():
-    backup(HOME + "/.config/alacritty")
-    os.symlink("./alacritty", HOME + "/.config/alacritty")
+    backup(HOME + "/.config/alacritty/")
+    os.symlink(HERE + "./alacritty", HOME + "/.config/alacritty")
 
 
 def install_qtile():
-    backup(HOME + "/.config/qtile")
-    os.symlink("./qtile", HOME + "/.config/qtile")
+    backup(HOME + "/.config/qtile/")
+    os.symlink(HERE + "./qtile", HOME + "/.config/qtile")
 
 
 def install_fish():
-    backup(HOME + "/.config/fish")
-    os.symlink("./fish", HOME + "/.config/fish")
+    backup(HOME + "/.config/fish/")
+    os.symlink(HERE + "./fish", HOME + "/.config/fish")
 
 
 def install_dunst():
-    backup(HOME + "/.config/dunst")
-    os.symlink("./dunst", HOME + "/.config/dunst")
+    backup(HOME + "/.config/dunst/")
+    os.symlink(HERE + "./dunst", HOME + "/.config/dunst")
 
 
 def install_kitty():
-    backup(HOME + "/.config/kitty")
-    os.symlink("./kitty", HOME + "/.config/kitty")
+    backup(HOME + "/.config/kitty//")
+    os.symlink(HERE + "./kitty", HOME + "/.config/kitty")
 
 
 def install_doom_emacs():
     qs = [
         inquirer.List(
             "doom_path",
-            message="Where to install Doom Emacs?",
+            message="Where to install Doom Emacs configuration?",
             choices=["~/.doom.d", "~/.config/doom"],
             default="~/.config/doom",
         ),
     ]
-    res = inquirer.prompt(qs)["doom_path"]
+    res: str = inquirer.prompt(qs)["doom_path"]
     backup(HOME + "/.emacs.d")
     os.system(
         f"""git clone --depth 1 https://github.com/hlissner/doom-emacs ~/.emacs.d
 {HOME}/.emacs.d/bin/doom install"""
     )
     backup(res)
-    os.symlink("./doom-emacs", os.path.abspath(res))
+    os.symlink(HERE + "./doom-emacs", os.path.abspath(res))
     os.system(f"{HOME}/.emacs.d/bin/doom sync")
 
 
 def install_dmscripts():
     backup(HOME + "/.config/dmscripts")
-    os.symlink("./dmscripts", HOME + "/.config/dmscripts")
+    os.symlink(HERE + "./dmscripts", HOME + "/.config/dmscripts")
 
 
 def install_fonts():
     backup(HOME + "/.fonts")
-    os.symlink("./fonts", HOME + "/.fonts")
+    os.symlink(HERE + "./fonts", HOME + "/.fonts")
     os.system("sudo fc-cache -fv")
 
 
@@ -194,10 +196,11 @@ def install():
     for folder in conf["to_install"]:
         if os.path.isdir(folder):
             actions[folder]()
+            print(f"Installed {folder}!")
 
 
 parser = argparse.ArgumentParser()
-parser.add_argument("action", choices=["validate", "install"])
+parser.add_argument("action", choices=["validate", "install"], default="install")
 args = parser.parse_args()
 if args.action == "validate":
     validate()
