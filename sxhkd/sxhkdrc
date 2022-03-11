@@ -1,0 +1,8 @@
+super + e; {e,d,f}
+      {emacsclient -c -a \'emacs\',discord,firefox}
+
+super + p; {space,right,left,p}
+      mocp {--toggle-pause,-f,-r,$HOME/.scripts/dm-mocp}
+
+super + s; {f,s,c}
+      flameshot {full -c -p $HOME/Screenshot,flameshot screen -c -p $HOME/Screenshots,flameshot gui -p $HOME/Screenshots}

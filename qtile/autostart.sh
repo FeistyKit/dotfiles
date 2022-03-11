@@ -6,6 +6,5 @@ picom &
 setxkbmap -option compose:ralt
 nitrogen --restore &
 emacs --daemon
-pyro4-ns &
-diodon &
+sxhkd -c "$HOME/.config/sxhkd/sxhkdrc" &
 flatpak run net.christianbeier.Gromit-MPX &

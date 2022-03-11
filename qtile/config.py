@@ -28,7 +28,7 @@ import os, subprocess, sys
 from typing import List  # noqa: F401
 
 from libqtile import bar, layout, widget
-from libqtile.config import Click, Drag, Group, EzKey as Key, Match, Screen, KeyChord
+from libqtile.config import Click, Drag, Group, EzKey as Key, Match, Screen
 from libqtile.lazy import lazy
 from libqtile import hook
 
@@ -63,69 +63,6 @@ keys = [
     Key("M-b", lazy.spawn(userpath + "/bin/boomer")),
     # https://github.com/bk138/gromit-mpx
     Key("M-a", lazy.spawn("gromit-mpx --toggle")),
-    # Mocp things!
-    KeyChord(
-        [mod],
-        "p",
-        [
-            Key(
-                "<space>",
-                lazy.spawn("mocp --toggle-pause"),
-                desc="Toggle pause/play in mocp",
-            ),
-            Key(
-                "<Right>", lazy.spawn("mocp --next"), desc="Go to the next song in mocp"
-            ),
-            Key(
-                "<Left>",
-                lazy.spawn("mocp --previous"),
-                desc="Go to the previous song in mocp",
-            ),
-            Key(
-                "p",
-                lazy.spawn(userpath + "/.scripts/dm-mocp"),
-                desc="Get songs to play",
-            ),
-        ],
-    ),
-    # Screenshots
-    KeyChord(
-        [mod],
-        "s",
-        [
-            Key(
-                "f",
-                lazy.spawn("flameshot full -c -p " + userpath + "/Screenshots"),
-                desc="Take a screenshot of every screen",
-            ),
-            Key(
-                "s",
-                lazy.spawn("flameshot screen -c -p " + userpath + "/Screenshots"),
-                desc="Take a screenshot of the current screen.",
-            ),
-            Key(
-                "c",
-                lazy.spawn("flameshot gui -p " + userpath + "/Screenshots"),
-                desc="Take a screenshot of the current screen.",
-            ),
-        ],
-    ),
-    # Programs!
-    # Much of this was taken from https://gitlab.com/dwt1/dotfiles/-/blob/master/.config/qtile/config.py
-    KeyChord(
-        [mod],
-        "e",
-        [
-            Key("e", lazy.spawn("emacsclient -c -a 'emacs'"), desc="Open emacs"),
-            Key(
-                "m",
-                lazy.spawn("emacsclient -c -a 'emacs' --eval '(mu4e)'"),
-                desc="Launch mail client inside of emacs",
-            ),
-            Key("d", lazy.spawn("discord"), desc="Open discord"),
-            Key("f", lazy.spawn("firefox"), desc="Open firefox"),
-        ],
-    ),
     Key(
         "M-S-<space>",
         lazy.window.toggle_floating(),
