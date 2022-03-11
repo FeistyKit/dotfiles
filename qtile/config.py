@@ -178,7 +178,7 @@ keys = [
     Key("M-r", lazy.spawncmd(), desc="Spawn a command using a prompt widget"),
 ]
 
-groups = [Group(i) for i in "123456789"]
+groups = [Group(x) for x in ["I", "II", "III", "IV", "COM", "DEV", "SYS", "GFX"]]
 
 for num, group in enumerate(groups):
     keys.extend(
@@ -378,7 +378,7 @@ def find_volume() -> int:
 
 
 # -- CODE STOLEN FROM https://github.com/qtile/qtile/wiki/screens -- #
-from Xlib import display as xdisplay
+from Xlib import display as xdisplay  # type: ignore
 
 
 def get_num_monitors():
