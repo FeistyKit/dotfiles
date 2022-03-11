@@ -46,6 +46,11 @@ def install_alacritty():
     os.symlink(HERE + "./alacritty", HOME + "/.config/alacritty")
 
 
+def install_sxhkd():
+    backup(HOME + "/.config/sxhkd/")
+    os.symlink(HERE + "./sxhkd", HOME + "/.config/sxhkd")
+
+
 def install_qtile():
     backup(HOME + "/.config/qtile/")
     os.symlink(HERE + "./qtile", HOME + "/.config/qtile")
@@ -97,7 +102,7 @@ def install_fonts():
     os.system("sudo fc-cache -fv")
 
 
-actions: dict[str, Callable] = {
+actions = {
     "alacritty": install_alacritty,
     "qtile": install_qtile,
     "fish": install_fish,
@@ -106,24 +111,23 @@ actions: dict[str, Callable] = {
     "doom-emacs": install_doom_emacs,
     "dmscripts": install_dmscripts,
     "fonts": install_fonts,
+    "sxhkd": install_sxhkd,
 }
 
-T = TypeVar("T")
 
-
-def anti_intersect(lhs: set[T], rhs: set[T]) -> tuple[set[T], set[T]]:
+def anti_intersect(lhs, rhs):
     return lhs - rhs, rhs - lhs
 
 
 def validate():
-    in_cur_dir: set[str] = set(
+    in_cur_dir = set(
         filter(
             lambda x: not x.startswith(".") and x not in ["install.py", "README.md"],
             os.listdir(),
         )
     )
     bad = False
-    prepared_folders: set[str] = set([x for x in actions])
+    prepared_folders = set([x for x in actions])
     not_prepared, not_exist = anti_intersect(in_cur_dir, prepared_folders)
     if len(not_prepared) == 1:
         msg = (
