@@ -58,6 +58,29 @@ def autostart():
     subprocess.run([scr])
 
 
+# Called whenever a new window is opened.
+# https://github.com/qtile/qtile/discussions/2319#discussioncomment-536854
+@hook.subscribe.client_new
+def assign_app_group(client):
+    d = {}
+    d["COM"] = [
+        "discord",
+    ]
+    for k in d.keys():
+        if k not in group_names:
+            os.system(
+                f'notify-send "Group \\"{k}\\" unknown! Note: located in assign_app_group()"'
+            )
+
+    wm_class = client.window.get_wm_class()[0]
+
+    for i in range(len(d)):
+        if wm_class in list(d.values())[i]:
+            group = list(d.keys())[i]
+            client.togroup(group)
+            client.group.cmd_toscreen(toggle=False)
+
+
 keys = [
     # https://github.com/tsoding/boomer
     Key("M-b", lazy.spawn(userpath + "/bin/boomer")),
@@ -115,7 +138,8 @@ keys = [
     Key("M-r", lazy.spawncmd(), desc="Spawn a command using a prompt widget"),
 ]
 
-groups = [Group(x) for x in ["I", "II", "III", "IV", "COM", "DEV", "SYS", "GFX"]]
+group_names = ["I", "II", "III", "IV", "COM", "DEV", "SYS", "GFX"]
+groups = [Group(x) for x in group_names]
 
 for num, group in enumerate(groups):
     keys.extend(
