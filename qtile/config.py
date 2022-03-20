@@ -66,6 +66,7 @@ def assign_app_group(client):
     d["COM"] = [
         "discord",
     ]
+    d["GFX"] = ["vlc"]
     for k in d.keys():
         if k not in group_names:
             os.system(
