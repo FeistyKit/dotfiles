@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: todo
+# key: todo
+# --
+assert False, "TODO: $1 is not yet implemented!"
