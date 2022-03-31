@@ -142,5 +142,7 @@ alias mkcd="mkdir $1 && cd $1"
 append-path "$HOME/.cabal/bin"
 append-path "$HOME/opt/bin"
 
+echo "" # Have some space at the top
+
 eval "$(~/.config/base16-shell/profile_helper.sh)"
 base16_gruvbox-dark-hard
