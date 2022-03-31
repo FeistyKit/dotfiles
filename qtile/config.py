@@ -169,7 +169,7 @@ for num, group in enumerate(groups):
 
 # https://gitlab.com/dwt1/dotfiles/-/blob/master/.config/qtile/config.py#L234
 layout_theme = {
-    "border_width": 2,
+    "border_width": 0,
     "margin": 8,
     "border_focus": "fabd2f",
     "border_normal": "bdae93",

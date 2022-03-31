@@ -7,4 +7,4 @@ setxkbmap -option compose:ralt
 nitrogen --restore &
 emacs --daemon
 sxhkd -c "$HOME/.config/sxhkd/sxhkdrc" &
-flatpak run net.christianbeier.Gromit-MPX &
+../utils/xborder/xborders --border-rgba "#FABD2FFF" --border-radius 30 &
