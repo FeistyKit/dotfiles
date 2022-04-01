@@ -9,35 +9,6 @@
 (setq user-full-name "FeistyKit"
       user-mail-address "eeveebeevee33@gmail.com")
 
-;; Doom exposes five (optional) variables for controlling fonts in Doom. Here
-;; are the three important ones:
-;;
-;; + `doom-font'
-;; + `doom-variable-pitch-font'
-;; + `doom-big-font' -- used for `doom-big-font-mode'; use this for
-;;   presentations or streaming.
-;;
-;; They all accept either a font-spec, font string ("Input Mono-12"), or xlfd
-;; font string. You generally only need these two:
-;; (setq doom-font (font-spec :family "monospace" :size 12 :weight 'semi-light)
-;;       doom-variable-pitch-font (font-spec :family "sans" :size 13))
-
-;; There are two ways to load a theme. Both assume the theme is installed and
-;; available. You can either set `doom-theme' or manually load a theme with the
-;; `load-theme' function. This is the default:
-
-
-;; https://www.djcbsoftware.nl/code/mu/mu4e/Folders.html
-(setq
-  mu4e-sent-folder   "/sent"       ;; folder for sent messages
-  mu4e-drafts-folder "/drafts"     ;; unfinished messages
-  mu4e-trash-folder  "/trash"      ;; trashed messages
-  mu4e-refile-folder "/archive")   ;; saved messages
-
-(require 'lsp-ido)
-
-(setq deft-directory "~/School")
-
 (defun read-lines (filePath)
   "Return a list of lines of a file at filePath."
   (with-temp-buffer
@@ -77,6 +48,7 @@
 
 (require 'lsp-pyright)
 
+(require 'lsp-ido)
 (ido-mode 1)
 (ido-everywhere 1)
 (ido-ubiquitous-mode 1)
@@ -89,8 +61,7 @@
 
 ;; This determines the style of line numbers in effect. If set to `nil', line
 ;; numbers are disabled. For relative line numbers, set this to `relative'.
-(setq display-line-numbers-type 1)
-
+(setq display-line-numbers-type 'relative)
 
 ;; Here are some additional functions/macros that could help you configure Doom:
 ;;
@@ -115,4 +86,8 @@
   (global-tree-sitter-mode)
   (add-hook 'tree-sitter-after-on-hook #'tree-sitter-hl-mode))
 
-(setenv "SHELL" "/bin/bash")
+(setenv "SHELL" "/usr/bin/zsh")
+
+;; Set transparency: taken from https://askubuntu.com/questions/1007434/how-to-make-emacs-transparent-with-i3-wm
+(set-frame-parameter (selected-frame) 'alpha '(90 . 90))
+(add-to-list 'default-frame-alist '(alpha . (90 . 90)))
