@@ -20,7 +20,8 @@ M.plugins = {
 	"chriskempson/base16-vim",
 	"alaviss/nim.nvim",
 	"tikhomirov/vim-glsl",
-	"RRethy/nvim-align"
+	"catppuccin/nvim",
+})"RRethy/nvim-align"
 }
 
 -- Set up language server for nim

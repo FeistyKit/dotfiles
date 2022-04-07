@@ -325,7 +325,7 @@ M.config = {
 
     -- Default colorscheme
     -- @default = doom-one
-    colorscheme = "base16-gruvbox-dark-hard",
+    colorscheme = "doom-one",
 
     -- Background color
     -- @default = dark
