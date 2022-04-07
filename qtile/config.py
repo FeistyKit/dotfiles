@@ -372,10 +372,7 @@ num_monitors = get_num_monitors()
 
 def make_screen():
     return Screen(
-        top=bar.Bar(
-            mk_widgets(),
-            int(24 * scale / 12),
-        ),
+        top=bar.Bar(mk_widgets(), int(24 * scale / 12), opacity=0.90, margin=3),
     )
 
 
