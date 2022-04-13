@@ -66,7 +66,7 @@ def assign_app_group(client):
     d["COM"] = [
         "discord",
     ]
-    d["GFX"] = ["vlc"]
+    d["GFX"] = ["vlc", "steam"]
     for k in d.keys():
         if k not in group_names:
             os.system(
@@ -179,9 +179,9 @@ layout_theme_clean["margin"] = 0
 
 
 layouts = [
-    layout.Columns(**layout_theme_clean),
     layout.Max(**layout_theme),
-    layout.Columns(**layout_theme)
+    layout.Columns(**layout_theme),
+    layout.Columns(**layout_theme_clean),
     # layout.Stack(**layout_theme),
     # layout.Bsp(**layout_theme),
     # layout.Matrix(**layout_theme),
@@ -372,7 +372,7 @@ num_monitors = get_num_monitors()
 
 def make_screen():
     return Screen(
-        top=bar.Bar(mk_widgets(), int(24 * scale / 12), opacity=0.90, margin=3),
+        top=bar.Bar(mk_widgets(), int(24 * scale / 12), opacity=0.90, margin=4),
     )
 
 
