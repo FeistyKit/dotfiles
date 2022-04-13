@@ -130,7 +130,12 @@ keys = [
         desc="Toggle between split and unsplit sides of stack",
     ),
     Key("M-<Return>", lazy.spawn(terminal), desc="Launch terminal"),
-    Key("M-S-<Return>", lazy.spawn(dmenu_command), desc="Dmenu"),
+    Key("M-S-<Return>", lazy.spawn("rofi -show run"), desc="Run an application"),
+    Key(
+        "M-C-<Return>",
+        lazy.spawn("rofi -show drun"),
+        desc="Run an application from .desktop files",
+    ),
     # Toggle between different layouts as defined below
     Key("M-<Tab>", lazy.next_layout(), desc="Toggle between layouts"),
     Key("M-S-c", lazy.window.kill(), desc="Kill focused window"),
@@ -179,8 +184,8 @@ layout_theme_clean["margin"] = 0
 
 
 layouts = [
-    layout.Max(**layout_theme),
     layout.Columns(**layout_theme),
+    layout.Max(**layout_theme),
     layout.Columns(**layout_theme_clean),
     # layout.Stack(**layout_theme),
     # layout.Bsp(**layout_theme),
