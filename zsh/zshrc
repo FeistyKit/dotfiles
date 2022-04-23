@@ -137,7 +137,11 @@ append-path ()
 
 alias ls="exa --long --all --git "
 alias c="clear "
-alias mkcd="mkdir $1 && cd $1"
+
+mkcd ()
+{
+  mkdir $1 && cd $1
+}
 
 append-path "$HOME/.cabal/bin"
 append-path "$HOME/opt/bin"
