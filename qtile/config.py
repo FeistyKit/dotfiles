@@ -201,24 +201,13 @@ layouts = [
 
 
 class Colours:
-    # colours stolen from https://github.com/chriskempson/base16-vim/blob/master/colors/base16-gruvbox-dark-hard.vim
-    # I apologize for my naming, I am bad with colours
-    DARKEST = "#1d2021"
-    DARK_BROWN = "#3c3836"
-    MED_DARK_BROWN = "#504945"
-    MED_BROWN = "#665c54"
-    DARKEST_TAN = "#bdae93"
-    MED_DARK_TAN = "#d5c4a1"
-    MED_LIGHT_TAN = "#ebdbb2"
-    NEAR_WHITE_TAN = "#fbf1c7"
-    RED = "#fb4934"
-    LIGHT_ORANGE = "#fe8019"
-    YELLOW = "#fabd2f"
-    GREEN = "#b8bb26"
-    TURQUOISE = "#8ec07c"
-    BLUE = "#83a598"
-    PINK = "#d3869b"
-    REDDIT_ORANGE = "#d65d0e"
+    # colours from https://github.com/catppuccin/catppuccin
+    BLACK_2 = "#1E1E2E"  # Black 2
+    BLACK_4 = "#575268"  # Black 4
+    GRAY_0 = "#6E6C7E"  # Gray 0
+    GRAY_2 = "#C3BAC6"  # Gray 2
+    BLUE = "#96CDFB"  # Blue
+    MAROON = "#E8A2AF"  # Maroon
 
 
 scale = None
@@ -237,8 +226,8 @@ widget_defaults = dict(
     font="mononoki Nerd Font",
     fontsize=int(12 * scale / 12),
     padding=int(3 * scale / 12),
-    background=Colours.DARKEST,
-    foreground=Colours.DARKEST_TAN,
+    background=Colours.BLACK_2,
+    foreground=Colours.GRAY_2,
 )
 extension_defaults = widget_defaults.copy()
 
@@ -248,8 +237,8 @@ def default_sep():
         text=" | ",
         linewidth=int(0 * scale / 12),
         padding=int(6 * scale / 12),
-        foreground=Colours.MED_DARK_BROWN,
-        background=Colours.DARKEST,
+        foreground=Colours.BLACK_4,
+        background=Colours.BLACK_2,
     )
 
 
@@ -261,25 +250,25 @@ def mk_widgets():
             padding_y=int(5 * scale / 12),
             padding_x=int(3 * scale / 12),
             borderwidth=int(3 * scale / 12),
-            active=Colours.PINK,
+            active=Colours.MAROON,
             inactive=Colours.BLUE,
             rounded=False,
-            highlight_color=Colours.MED_BROWN,
+            highlight_color=Colours.GRAY_0,
             highlight_method="line",
-            foreground=Colours.MED_BROWN,
-            background=Colours.DARKEST,
+            foreground=Colours.GRAY_0,
+            background=Colours.BLACK_2,
         ),
         default_sep(),
         widget.WindowName(
             padding=int(0 * scale / 12),
-            foreground=Colours.DARKEST_TAN,
-            background=Colours.DARKEST,
+            foreground=Colours.GRAY_2,
+            background=Colours.BLACK_2,
         ),
         widget.Sep(
             linewidth=int(0 * scale / 12),
             padding=int(70 * scale / 12),
-            foreground=Colours.MED_BROWN,
-            background=Colours.DARKEST,
+            foreground=Colours.GRAY_0,
+            background=Colours.BLACK_2,
         ),
         widget.CPU(
             format="CPU {load_percent}%",
@@ -303,8 +292,8 @@ def mk_widgets():
             distro="Arch_checkupdates",
             display_format="PAC {updates}",
             no_update_string="UP TO DATE",
-            colour_no_updates=Colours.DARKEST_TAN,
-            colour_have_updates=Colours.DARKEST_TAN,
+            colour_no_updates=Colours.GRAY_2,
+            colour_have_updates=Colours.GRAY_2,
         ),
         default_sep(),
         # widget.MOC(),
@@ -323,8 +312,8 @@ def mk_widgets():
             to_ret.insert(
                 battery_index,
                 widget.Battery(
-                    foreground=Colours.DARKEST_TAN,
-                    background=Colours.DARKEST,
+                    foreground=Colours.GRAY_2,
+                    background=Colours.BLACK_2,
                     format="BAT {char} {percent:2.0%}",
                 ),
             )
