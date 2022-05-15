@@ -83,6 +83,7 @@ def assign_app_group(client):
 
 
 keys = [
+    Key("M-<space>", lazy.window.toggle_fullscreen(), desc="toggle fullscreen"),
     # https://github.com/tsoding/boomer
     Key("M-b", lazy.spawn(userpath + "/bin/boomer")),
     # https://github.com/bk138/gromit-mpx
@@ -106,7 +107,6 @@ keys = [
     Key("M-l", lazy.layout.right(), desc="Move focus to right"),
     Key("M-j", lazy.layout.down(), desc="Move focus down"),
     Key("M-k", lazy.layout.up(), desc="Move focus up"),
-    Key("M-<space>", lazy.layout.next(), desc="Move window focus to other window"),
     # Move windows between left/right columns or move up/down in current stack.
     # Moving out of range in Columns layout will create new column.
     Key("M-C-h", lazy.layout.shuffle_left(), desc="Move window to the left"),
