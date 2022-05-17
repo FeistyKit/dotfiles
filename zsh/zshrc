@@ -146,6 +146,7 @@ mkcd ()
 append-path "$HOME/.cabal/bin"
 append-path "$HOME/opt/bin"
 append-path "$HOME/bin"
+append-path "$HOME/go/bin"
 
 echo "" # Have some space at the top
 
