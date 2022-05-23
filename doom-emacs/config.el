@@ -89,5 +89,5 @@
 (setenv "SHELL" "/usr/bin/zsh")
 
 ;; Set transparency: taken from https://askubuntu.com/questions/1007434/how-to-make-emacs-transparent-with-i3-wm
-(set-frame-parameter (selected-frame) 'alpha '(90 . 90))
-(add-to-list 'default-frame-alist '(alpha . (90 . 90)))
+;; (set-frame-parameter (selected-frame) 'alpha '(90 . 90))
+;; (add-to-list 'default-frame-alist '(alpha . (90 . 90)))
