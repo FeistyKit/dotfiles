@@ -2,7 +2,9 @@
 rm "$HOME"/.moc/pid
 dunst &
 mocp -S &
-picom --corner-radius 30 &
+pnmixer &
+# picom --corner-radius 30 &
+picom &
 setxkbmap -option compose:ralt
 nitrogen --restore &
 emacs --daemon &
