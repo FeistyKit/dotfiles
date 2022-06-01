@@ -39,6 +39,8 @@
                (shell-command-to-string "rustc --print sysroot"))
               "/lib/rustlib/src/rust/library"))
 
+(setq lsp-rust-analyzer-cargo-watch-command "clippy")
+
 (setq inferior-lisp-program "sbcl")
 
 (set-lookup-handlers! 'lsp-mode :documentation nil)
