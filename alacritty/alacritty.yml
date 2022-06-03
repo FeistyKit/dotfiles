@@ -180,8 +180,10 @@ font:
 colors:
   # Default colors
   primary:
-    background: '0x1E1D2F'
-    foreground: '0xD9E0EE'
+    # background: '0x1E1D2F'
+    # foreground: '0xD9E0EE'
+    background: '0x181818'
+    foreground: '0xe4e4ef'
 
     # Bright and dim foreground colors
     #
@@ -259,7 +261,6 @@ colors:
     magenta: '0xF5C2E7'
     cyan:    '0x89DCEB'
     white:   '0xD9E0EE'
-
 # Bright colors
   bright:
     black:   '0x988BA2'
