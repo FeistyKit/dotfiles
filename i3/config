@@ -98,6 +98,9 @@ bindsym $mod+s layout toggle split
 # toggle tiling / floating
 floating_modifier $mod
 
+# Toggle desktop
+bindsym $mod+Shift+d exec python ~/Dotfiles/utils/i3_show_desktop/bg.py
+
 # # change focus between tiling / floating windows
 # bindsym $mod+space focus mode_toggle
 
