@@ -73,7 +73,7 @@
 
 ;; add indent-region functionality
 (map! :leader
-      :desc "Fix indentation of region" "c i" #'indent-region)
+      :desc "Fix indentation of region" "c I" #'indent-region)
 
 ;; add indent-region functionality
 (map! :leader
