@@ -78,3 +78,5 @@
 ;; add indent-region functionality
 (map! :leader
        :desc "Align by regex" "c b" #'align-regexp)
+
+(setq hl-line-sticky-flag nil)
