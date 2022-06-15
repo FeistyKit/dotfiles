@@ -143,6 +143,11 @@ mkcd ()
   mkdir $1 && cd $1
 }
 
+twitch-vod()
+{
+  streamlink --stream-segment-threads 3 -p=mpv --player-no-close "$1" best
+}
+
 append-path "$HOME/.cabal/bin"
 append-path "$HOME/opt/bin"
 append-path "$HOME/bin"
