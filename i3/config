@@ -95,8 +95,7 @@ bindsym $mod+Shift+Space fullscreen toggle
 bindsym $mod+t layout tabbed
 bindsym $mod+s layout toggle split
 
-# toggle tiling / floating
-floating_modifier $mod
+bindsym $mod+Control+space floating toggle
 
 # Toggle desktop
 bindsym $mod+Shift+d exec python ~/Dotfiles/utils/i3_show_desktop/bg.py
