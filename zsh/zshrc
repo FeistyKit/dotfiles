@@ -154,6 +154,7 @@ append-path "$HOME/bin"
 append-path "$HOME/go/bin"
 append-path "$HOME/.dotnet/tools"
 append-path "$HOME/.emacs.d/bin"
+append-path "$HOME/.local/bin/"
 
 echo "" # Have some space at the top
 
