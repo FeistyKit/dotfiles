@@ -40,7 +40,7 @@
 
 (package! racer :disable t)
 
-(package! catppuccin-theme)
+;; (package! catppuccin-theme)
 
 (package! gruber-darker-theme)
 
