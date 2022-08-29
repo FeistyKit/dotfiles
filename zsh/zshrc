@@ -1,4 +1,5 @@
-# -- The following up until the next "End" was provided by ArcoLinux and thus I did nothing but edit it slightly. -- #
+export EDITOR=nvim
+# The following up until the next "End" was provided by ArcoLinux and thus I did nothing but edit it slightly. -- #
 
 # Path to your oh-my-zsh installation.
 #installation via script from github
