@@ -4,7 +4,7 @@
 
 set $mod Mod4
 
-set $term kitty
+set $term alacritty
 
 set $height 14
 
