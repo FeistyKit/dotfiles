@@ -1,3 +1,18 @@
+append-path ()
+{
+  if [ -d "$1" ]; then
+      PATH="$PATH:$1"
+  fi
+}
+append-path "$HOME/.cabal/bin"
+append-path "$HOME/opt/bin"
+append-path "$HOME/bin"
+append-path "$HOME/go/bin"
+append-path "$HOME/.dotnet/tools"
+append-path "$HOME/.emacs.d/bin"
+append-path "$HOME/.local/bin"
+
+
 export EDITOR=nvim
 # The following up until the next "End" was provided by ArcoLinux and thus I did nothing but edit it slightly. -- #
 
@@ -128,14 +143,7 @@ zstyle ':vcs_info:*' stagedstr ' +'
 zstyle ':vcs_info:git:*' formats       '(%b%u%c)'
 zstyle ':vcs_info:git:*' actionformats '(%b|%a%u%c)'
 # -- End -- #
-
-append-path ()
-{
-  if [ -d "$1" ]; then
-      PATH="$PATH:$1"
-  fi
-}
-
+#
 alias ls="exa --long --all --git "
 alias c="clear "
 
@@ -149,16 +157,13 @@ twitch-vod()
   streamlink --stream-segment-threads 3 -p=mpv --player-no-close "$1" best
 }
 
-append-path "$HOME/.cabal/bin"
-append-path "$HOME/opt/bin"
-append-path "$HOME/bin"
-append-path "$HOME/go/bin"
-append-path "$HOME/.dotnet/tools"
-append-path "$HOME/.emacs.d/bin"
-
 echo "" # Have some space at the top
 
 # https://github.com/catppuccin/fzf#usage
 export FZF_DEFAULT_OPTS='--color=bg+:#302D41,bg:#1E1E2E,spinner:#F8BD96,hl:#F28FAD --color=fg:#D9E0EE,header:#F28FAD,info:#DDB6F2,pointer:#F8BD96 --color=marker:#F8BD96,fg+:#F2CDCD,prompt:#DDB6F2,hl+:#F28FAD'
 
 # eval "$(~/.config/base16-shell/profile_helper.sh)"
+#
+if [ -f /etc/zsh.command-not-found ]; then
+    . /etc/zsh.command-not-found
+fi

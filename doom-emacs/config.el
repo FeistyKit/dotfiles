@@ -80,3 +80,19 @@
        :desc "Align by regex" "c b" #'align-regexp)
 
 (setq hl-line-sticky-flag nil)
+;; This configuration code is partially from https://gitlab.com/dwt1/dotfiles/-/blob/master/.config/doom/config.org#erc
+;; I have edited it myself, too
+(map! :leader
+      (:prefix ("e". "ERC")
+       :desc "Launch ERC with TLS connection" "e" #'erc-tls))
+
+(setq erc-prompt (lambda () (concat "[" (buffer-name) "]"))
+      erc-nick "daisyflare"
+      erc-user-full-name "Daisy Flare"
+      erc-track-shorten-start 24
+      erc-kill-buffer-on-part t
+      erc-fill-column 100
+      erc-fill-function 'erc-fill-static
+      erc-fill-static-center 20)
+      ;; erc-auto-query 'bury
+;; End taken code
