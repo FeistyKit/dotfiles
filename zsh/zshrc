@@ -167,3 +167,17 @@ export FZF_DEFAULT_OPTS='--color=bg+:#302D41,bg:#1E1E2E,spinner:#F8BD96,hl:#F28F
 if [ -f /etc/zsh.command-not-found ]; then
     . /etc/zsh.command-not-found
 fi
+
+download-music () 
+{
+	# this code is taken from: https://github.com/Tom60chat/Youtube-Music-downloader/blob/main/YT%20Music%20Dl.sh
+	yt-dlp $1 \
+	 --extract-audio\
+	  --audio-format mp3\
+	   --audio-quality 0\
+	    --add-metadata\
+	     --embed-thumbnail\
+	      --ppa "EmbedThumbnail+ffmpeg_o:-c:v mjpeg -vf crop=\"'if(gt(ih,iw),iw,ih)':'if(gt(iw,ih),ih,iw)'\""
+}
+
+
