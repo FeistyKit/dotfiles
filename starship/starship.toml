@@ -1,0 +1,29 @@
+format = """[⛧](bold yellow) $shell[as](dimmed white) $username [on](dimmed white) $hostname [in](dimmed white) $directory $all$character"""
+
+[shell]
+style = "bold yellow"
+disabled = false
+
+[username]
+style_user = "bold green"
+format = "[$user]($style)"
+show_always = true
+disabled = false
+
+[hostname]
+style = "bold cyan"
+format = "[$ssh_symbol$hostname]($style)"
+ssh_only = false
+disabled = false
+
+[directory]
+format = "[$path]($style)[$read_only]($read_only_style)"
+read_only = "(RO)"
+truncation_symbol = "../"
+style = "bold dimmed purple"
+use_os_path_sep = false
+disabled = false
+
+[character]
+success_symbol = "[λ](bold green)"
+error_symbol = "[λ](bold red)"
