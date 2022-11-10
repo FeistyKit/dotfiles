@@ -1,7 +1,7 @@
-format = """[⛧](bold yellow) $shell[as](dimmed white) $username [on](dimmed white) $hostname [in](dimmed white) $directory $all$character"""
+format = """[⛧](bold purple) $shell[as](dimmed white) $username [on](dimmed white) $hostname [in](dimmed white) $directory $all$character"""
 
 [shell]
-style = "bold yellow"
+style = "bold purple"
 disabled = false
 
 [username]
@@ -20,7 +20,7 @@ disabled = false
 format = "[$path]($style)[$read_only]($read_only_style)"
 read_only = "(RO)"
 truncation_symbol = "../"
-style = "bold dimmed purple"
+style = "bold yellow"
 use_os_path_sep = false
 disabled = false
 
