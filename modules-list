@@ -1,0 +1,9 @@
+# This file contains the modules and symlinks for the program.
+alacritty: ./alacritty -> ~/.config/alacritty
+zsh: ./zsh/zshrc -> ~/.zshrc
+i3: ./i3 -> ~/.config/i3
+starship: ./starship/starship.toml ~/.config/starship.toml
+kitty: ./kitty -> ~/.config/kitty
+qtile: ./qtile -> ~/.config/qtile
+sxhkd: ./sxhkd -> ~/.config/sxhkd
+fonts: ./fonts -> ~/.fonts
