@@ -34,6 +34,7 @@
               "/lib/rustlib/src/rust/library"))
 
 (setq lsp-rust-analyzer-cargo-watch-command "clippy")
+(setq lsp-rust-analyzer-diagnostics-disabled (vector "inactive-code"))
 
 (setq inferior-lisp-program "sbcl")
 
