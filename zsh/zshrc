@@ -11,6 +11,7 @@ append-path "$HOME/go/bin"
 append-path "$HOME/.dotnet/tools"
 append-path "$HOME/.emacs.d/bin"
 append-path "$HOME/.local/bin"
+append-path "$HOME/thirdparty/phantomjs/bin"
 
 
 export EDITOR=nvim
@@ -170,14 +171,16 @@ fi
 
 download-music () 
 {
-	# this code is taken from: https://github.com/Tom60chat/Youtube-Music-downloader/blob/main/YT%20Music%20Dl.sh
+	# this code is mostly taken from: https://github.com/Tom60chat/Youtube-Music-downloader/blob/main/YT%20Music%20Dl.sh
 	yt-dlp $1 \
 	 --extract-audio\
 	  --audio-format mp3\
 	   --audio-quality 0\
 	    --add-metadata\
 	     --embed-thumbnail\
-	      --ppa "EmbedThumbnail+ffmpeg_o:-c:v mjpeg -vf crop=\"'if(gt(ih,iw),iw,ih)':'if(gt(iw,ih),ih,iw)'\""
+	     # This part is taken from: https://www.reddit.com/r/youtubedl/comments/qf2uqv/fix_for_60kbs_throttled_downloads_2021oct/
+	      --external-downloader=aria2c --external-downloader-args '--min-split-size=1M --max-connection-per-server=16 --max-concurrent-downloads=16 --split=16'\
+	       --ppa "EmbedThumbnail+ffmpeg_o:-c:v mjpeg -vf crop=\"'if(gt(ih,iw),iw,ih)':'if(gt(iw,ih),ih,iw)'\""
 }
 
 eval $(starship init zsh)
