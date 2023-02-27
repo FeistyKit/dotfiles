@@ -38,6 +38,27 @@
 
 (setq inferior-lisp-program "sbcl")
 
+(require 'elfeed-goodies)
+(elfeed-goodies/setup)
+(setq elfeed-goodies/entry-pane-size 0.5)
+(setq elfeed-feeds (quote
+                    (("https://www.reddit.com/r/rust.rss" reddit rust)
+                     ("https://www.reddit.com/r/go.rss" reddit go)
+                     ("https://www.reddit.com/r/linux.rss" reddit linux)
+                     ("https://fasterthanli.me/index.xml" rust blog)
+                     ("https://blog.joren.ga/feed.xml" c blog)
+                     ("https://feeds.feedburner.com/geeklandlinux" blog))))
+;; Taken from https://odysee.com/@DistroTube:2/is-the-best-rss-reader-an-emacs-package:6
+(evil-define-key 'normal elfeed-show-mode-map
+  (kbd "J") 'elfeed-goodies/split-show-next
+  (kbd "K") 'elfeed-goodies/split-show-prev)
+(evil-define-key 'normal elfeed-search-mode-map
+  (kbd "J") 'elfeed-goodies/split-show-next
+  (kbd "K") 'elfeed-goodies/split-show-prev)
+
+
+
+
 (set-lookup-handlers! 'lsp-mode :documentation nil)
 (set-lookup-handlers! 'lsp-mode :documentation 'lsp-ui-doc-show)
 
