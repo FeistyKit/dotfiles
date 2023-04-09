@@ -5,6 +5,7 @@ append-path ()
   fi
 }
 append-path "$HOME/.cabal/bin"
+append-path "$HOME/.cargo/bin"
 append-path "$HOME/opt/bin"
 append-path "$HOME/bin"
 append-path "$HOME/go/bin"
@@ -13,8 +14,14 @@ append-path "$HOME/.emacs.d/bin"
 append-path "$HOME/.local/bin"
 append-path "$HOME/thirdparty/phantomjs/bin"
 
+if [ $(id -u) -ne 0 ]; then
+   if [ ! "$(ps aux | grep emacs | grep -v grep)" ]; then
+      emacs -nw --daemon=smalltask &
+   fi
+fi
 
-export EDITOR=nvim
+export EDITOR="emacsclient -socket-name=\"smalltask\" -nw "
+alias edit="$EDITOR"
 # The following up until the next "End" was provided by ArcoLinux and thus I did nothing but edit it slightly. -- #
 
 # Path to your oh-my-zsh installation.
@@ -181,6 +188,13 @@ download-music ()
 	     # This part is taken from: https://www.reddit.com/r/youtubedl/comments/qf2uqv/fix_for_60kbs_throttled_downloads_2021oct/
 	      --external-downloader=aria2c --external-downloader-args '--min-split-size=1M --max-connection-per-server=16 --max-concurrent-downloads=16 --split=16'\
 	       --ppa "EmbedThumbnail+ffmpeg_o:-c:v mjpeg -vf crop=\"'if(gt(ih,iw),iw,ih)':'if(gt(iw,ih),ih,iw)'\""
+}
+
+alias back="cd $OLDPWD"
+
+fix-discord () 
+{
+	sudoedit "$(file "$(which Discord)" | sed "s/.*to\s\.\.\(.*\)Discord\s*$/\1resources\/build_info.json/")"
 }
 
 eval $(starship init zsh)

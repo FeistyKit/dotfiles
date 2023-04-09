@@ -40,12 +40,18 @@
 
 (package! racer :disable t)
 
-(package! autothemer)
+(package! catppuccin-theme)
 
 (package! gruber-darker-theme)
 
 (package! book-mode
-  :recipe (:host github :repo "rougier/book-mode"))
+  :recipe (:type git :host github :repo "rougier/book-mode"))
+
+(package! nano-theme
+  :recipe (:type git :host github
+           :repo "rougier/nano-theme"))
+
+
 
 ;; If the package you are trying to install does not contain a PACKAGENAME.el
 ;; file, or is located in a subdirectory of the repo, you'll need to specify
