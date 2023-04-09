@@ -197,4 +197,7 @@ fix-discord ()
 	sudoedit "$(file "$(which Discord)" | sed "s/.*to\s\.\.\(.*\)Discord\s*$/\1resources\/build_info.json/")"
 }
 
+alias another-quote="aquote $HOME/Dotfiles/quotes.json"
+
+another-quote
 eval $(starship init zsh)
