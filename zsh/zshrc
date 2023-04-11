@@ -16,7 +16,7 @@ append-path "$HOME/thirdparty/phantomjs/bin"
 
 if [ $(id -u) -ne 0 ]; then
    if [ ! "$(ps aux | grep emacs | grep -v grep)" ]; then
-      emacs -nw --daemon=smalltask &
+      emacs -nw --daemon=smalltask &> /dev/null &
    fi
 fi
 
