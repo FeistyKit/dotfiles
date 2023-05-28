@@ -197,6 +197,12 @@ fix-discord ()
 	sudoedit "$(file "$(which Discord)" | sed "s/.*to\s\.\.\(.*\)Discord\s*$/\1resources\/build_info.json/")"
 }
 
+backup ()
+{
+  cp -r "$1" "$1.backup"
+  echo "Backed up \"$1\" to \"$1.backup\"!"
+}
+
 alias another-quote="aquote $HOME/Dotfiles/quotes.json"
 
 another-quote
