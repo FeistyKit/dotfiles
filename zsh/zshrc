@@ -176,18 +176,19 @@ if [ -f /etc/zsh.command-not-found ]; then
     . /etc/zsh.command-not-found
 fi
 
-download-music () 
+download-music ()
 {
-	# this code is mostly taken from: https://github.com/Tom60chat/Youtube-Music-downloader/blob/main/YT%20Music%20Dl.sh
-	yt-dlp $1 \
-	 --extract-audio\
-	  --audio-format mp3\
-	   --audio-quality 0\
-	    --add-metadata\
-	     --embed-thumbnail\
-	     # This part is taken from: https://www.reddit.com/r/youtubedl/comments/qf2uqv/fix_for_60kbs_throttled_downloads_2021oct/
-	      --external-downloader=aria2c --external-downloader-args '--min-split-size=1M --max-connection-per-server=16 --max-concurrent-downloads=16 --split=16'\
-	       --ppa "EmbedThumbnail+ffmpeg_o:-c:v mjpeg -vf crop=\"'if(gt(ih,iw),iw,ih)':'if(gt(iw,ih),ih,iw)'\""
+ # this code is mostly taken from: https://github.com/Tom60chat/Youtube-Music-downloader/blob/main/YT%20Music%20Dl.sh
+ yt-dlp $1 \
+  --extract-audio\
+   --audio-format mp3\
+    --audio-quality 0\
+     --parse-metadata "playlist_index:%(track_number)s"\
+      --add-metadata\
+       --embed-thumbnail\
+        --external-downloader=aria2c --external-downloader-args '--min-split-size=1M --max-connection-per-server=16 --max-concurrent-downloads=16 --split=16'\
+         --ppa "EmbedThumbnail+ffmpeg_o:-c:v mjpeg -vf crop=\"'if(gt(ih,iw),iw,ih)':'if(gt(iw,ih),ih,iw)'\""
+       # This part is taken from: https://www.reddit.com/r/youtubedl/comments/qf2uqv/fix_for_60kbs_throttled_downloads_2021oct/
 }
 
 alias back="cd $OLDPWD"
