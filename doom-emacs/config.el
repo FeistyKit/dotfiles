@@ -22,7 +22,7 @@
 (remove-hook! rustic-mode-local-vars-hook #'racer-mode)
 (remove-hook! hack-local-variables-hook #'racer-mode)
 
-(setq doom-theme 'base16-gruvbox-dark-medium)
+(setq doom-theme 'zenburn)
 (setq custom-font-size (cond ((file-exists-p "~/.config/doom/local-config") (string-to-number (trim-string ( nth 0 (read-lines "~/.config/doom/local-config"))))) (t 20)))
   ;; reading the size from a file so I can have different local configs for different computers
 
