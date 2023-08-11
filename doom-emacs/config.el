@@ -107,6 +107,11 @@
 (map! :leader
        :desc "Align by regex" "c b" #'align-regexp)
 
+(map! :v "J" #'move-text-region-down)
+(map! :v "K" #'move-text-region-up)
+(map! :n "J" #'move-text-down)
+(map! :n "K" #'move-text-up)
+
 (setq hl-line-sticky-flag nil)
 ;; This configuration code is partially from https://gitlab.com/dwt1/dotfiles/-/blob/master/.config/doom/config.org#erc
 ;; I have edited it myself, too
