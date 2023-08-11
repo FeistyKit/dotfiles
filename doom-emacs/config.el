@@ -40,6 +40,20 @@
 
 (require 'elfeed-goodies)
 (elfeed-goodies/setup)
+(when
+    (and
+     (boundp 'elfeed-show-mode-map)
+     (boundp 'elfeed-search-mode-map)
+     (boundp 'normal))
+;; Taken from https://odysee.com/@DistroTube:2/is-the-best-rss-reader-an-emacs-package:6
+        (cl-do (evil-define-key 'normal elfeed-show-mode-map
+          (kbd "J") 'elfeed-goodies/split-show-next
+          (kbd "K") 'elfeed-goodies/split-show-prev)
+        (evil-define-key 'normal elfeed-search-mode-map
+          (kbd "J") 'elfeed-goodies/split-show-next
+          (kbd "K") 'elfeed-goodies/split-show-prev)))
+
+
 (setq elfeed-goodies/entry-pane-size 0.5)
 (setq elfeed-feeds (quote
                     (("https://www.reddit.com/r/rust.rss" reddit rust)
@@ -48,14 +62,6 @@
                      ("https://fasterthanli.me/index.xml" rust blog)
                      ("https://blog.joren.ga/feed.xml" c blog)
                      ("https://feeds.feedburner.com/geeklandlinux" blog))))
-;; Taken from https://odysee.com/@DistroTube:2/is-the-best-rss-reader-an-emacs-package:6
-(evil-define-key 'normal elfeed-show-mode-map
-  (kbd "J") 'elfeed-goodies/split-show-next
-  (kbd "K") 'elfeed-goodies/split-show-prev)
-(evil-define-key 'normal elfeed-search-mode-map
-  (kbd "J") 'elfeed-goodies/split-show-next
-  (kbd "K") 'elfeed-goodies/split-show-prev)
-
 
 
 
