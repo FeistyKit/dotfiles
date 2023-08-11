@@ -46,12 +46,12 @@
      (boundp 'elfeed-search-mode-map)
      (boundp 'normal))
 ;; Taken from https://odysee.com/@DistroTube:2/is-the-best-rss-reader-an-emacs-package:6
-        (cl-do (evil-define-key 'normal elfeed-show-mode-map
-          (kbd "J") 'elfeed-goodies/split-show-next
-          (kbd "K") 'elfeed-goodies/split-show-prev)
-        (evil-define-key 'normal elfeed-search-mode-map
-          (kbd "J") 'elfeed-goodies/split-show-next
-          (kbd "K") 'elfeed-goodies/split-show-prev)))
+    (cl-do (evil-define-key 'normal elfeed-show-mode-map
+            (kbd "J") 'elfeed-goodies/split-show-next
+            (kbd "K") 'elfeed-goodies/split-show-prev)
+     (evil-define-key 'normal elfeed-search-mode-map
+       (kbd "J") 'elfeed-goodies/split-show-next
+       (kbd "K") 'elfeed-goodies/split-show-prev)))
 
 
 (setq elfeed-goodies/entry-pane-size 0.5)
@@ -70,9 +70,9 @@
 
 (elcord-mode)
 
-(require 'lsp-pyright)
+;; (require 'lsp-pyright)
 
-(require 'lsp-ido)
+;; (require 'lsp-ido)
 (ido-mode 1)
 (ido-everywhere 1)
 (ido-ubiquitous-mode 1)

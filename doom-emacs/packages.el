@@ -24,11 +24,13 @@
 
 (package! move-text)
 
-(package! lsp-ui)
+(package! flycheck-mode :disable t)
 
-(package! lsp-ivy)
+;; (package! lsp-ui)
 
-(package! lsp-pyright)
+;; (package! lsp-ivy)
+
+;; (package! lsp-pyright)
 
 (package! ido-completing-read+)
 
@@ -36,20 +38,20 @@
 
 (package! slime)
 
-(package! carbon-now-sh)
+;; (package! carbon-now-sh)
 
 (package! racer :disable t)
 
-(package! catppuccin-theme)
+;; (package! catppuccin-theme)
 
 (package! gruber-darker-theme)
 
-(package! book-mode
-  :recipe (:type git :host github :repo "rougier/book-mode"))
+;; (package! book-mode
+;;   :recipe (:type git :host github :repo "rougier/book-mode"))
 
-(package! nano-theme
-  :recipe (:type git :host github
-           :repo "rougier/nano-theme"))
+;; (package! nano-theme
+;;   :recipe (:type git :host github
+;;            :repo "rougier/nano-theme"))
 
 
 
