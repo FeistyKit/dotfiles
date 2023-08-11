@@ -15,7 +15,8 @@ font pango:Iosevka Nerd font $height
 for_window [class="emacs"] fullscreen toggle
 
 hide_edge_borders smart
-exec sh $HOME/.config/qtile/autostart.sh
+
+exec sh "$HOME/.startup.sh"
 
 # Start XDG autostart .desktop files using dex. See also
 # https://wiki.archlinux.org/index.php/xdg_Autostart
