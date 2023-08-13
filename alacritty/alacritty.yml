@@ -176,15 +176,7 @@ font:
 # If `true`, bold text is drawn using the bright color variants.
 #draw_bold_text_with_bright_colors: false
 
-# Colors (Catppuccin)
 colors:
-  # Default colors
-  primary:
-    # background: '0x1E1D2F'
-    # foreground: '0xD9E0EE'
-    background: '0x181818'
-    foreground: '0xe4e4ef'
-
     # Bright and dim foreground colors
     #
     # The dimmed foreground color is calculated automatically if it is not
@@ -252,8 +244,33 @@ colors:
   #  background: CellForeground
 
 color_schemes:
+  zenburn: &zenburn
+    # Default colors
+    primary:
+      background: '#3F3F3F'
+      foreground: '#DCDCCC'
 
+    # Normal colors
+    normal:
+      black:   '#2B2B2B'
+      red:     '#CC9393'
+      green:   '#7F9F7F'
+      yellow:  '#F0DFAF'
+      blue:    '#94BFF3'
+      magenta: '#DC8CC3'
+      cyan:    '#93E0E3'
+      white:   '#FFFFEF'
 
+    # Bright colors
+    bright:
+      black:   '#000000'
+      red:     '#8C5353'
+      green:   '#3F5F3F'
+      yellow:  '#D0BF8F'
+      blue:    '#8CD0D3'
+      magenta: '#DC8CC3'
+      cyan:    '#93E0E3'
+      white:   '#FFFFEF'
 
   latte: &latte
 
@@ -587,7 +604,7 @@ color_schemes:
 
 
 
-colors: *frappe
+colors: *zenburn
 
 # Bell
 #
