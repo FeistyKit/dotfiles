@@ -22,6 +22,8 @@ exec sh "$HOME/.startup.sh"
 # https://wiki.archlinux.org/index.php/xdg_Autostart
 exec --no-startup-id dex --autostart --environment i3
 
+exec --no-startup-id lxpolkit
+
 # The combination of xss-lock, nm-applet and pactl is a popular choice, so
 # they are included here as an example. modify as you see fit.
 
